@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Library.eCommerce.Models;
 
 namespace Spring2025_Samples.Models
 {
@@ -19,15 +20,30 @@ namespace Spring2025_Samples.Models
                 return $"{Id}. {Name}";
             }
         }
+        
+        public string LegacyProperty1 { get; set; }
 
         public Product()
         {
             Name = string.Empty;
         }
 
+        public Product(Product p)
+        {
+            Name = p.Name;
+            Id = p.Id;
+        }
+
         public override string ToString()
         {
             return Display ?? string.Empty;
+        }
+
+        public Product(ProductDTO p)
+        {
+            Name = p.Name;
+            Id = p.Id;
+            LegacyProperty1 = string.Empty;
         }
     }
 }

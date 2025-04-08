@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.eCommerce.Views.CheckoutView"
+             Title="Checkout">
+    
+    <VerticalStackLayout>
+        <Label Text="Your Cart" FontSize="15"/>
+
+        <CollectionView ItemsSource="{Binding CartItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding SummaryDisplay}" FontSize="15"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="  " />
+        <Label Text="{Binding SubtotalDisplay}" FontSize="15"/>
+        <Label Text="{Binding TaxDisplay}" FontSize="15"/>
+        <Label Text="  " />
+        <Label Text="{Binding TotalDisplay}" FontSize="20"/>
+        <Label Text="  " />
+        <Button Text="Go Back" Clicked="GoBackClicked"/>
+    </VerticalStackLayout>
+</ContentPage>
